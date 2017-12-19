@@ -7,9 +7,6 @@ import org.springframework.validation.BindingResult
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
-/**
- * Taskコントローラークラス
- */
 @Controller
 @RequestMapping("tasks")
 class TaskController(private val taskRepository: TaskRepository, private val greeter: Greeter) {
