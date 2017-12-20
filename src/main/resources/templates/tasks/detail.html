@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>タスク詳細</title>
+</head>
+<body>
+<div th:object="${task}">
+    <div>
+        <label>
+            内容:<span type="text" th:text="*{content}"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            状態:<span th:text="*{done} ? 完了 : 未完了"/>
+        </label>
+    </div>
+</div>
+</body>
+</html>

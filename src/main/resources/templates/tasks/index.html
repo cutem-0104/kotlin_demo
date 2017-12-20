@@ -10,8 +10,14 @@
 <ul th:unless="${tasks.isEmpty()}">
     <li th:each="task: ${tasks}">
         <a th:href="@{tasks/{id}/edit(id=${task.id})}">
-            <span th:unless="${task.done}" th:text="${task.content}"></span>
-            <s th:if="${task.done}" th:text="${task.content}"></s>
+            <span th:unless="${task.done}" th:text="${task.content}"/>
+            <s th:if="${task.done}" th:text="${task.content}"/>
+        </a>
+        <br>
+        <a th:href="@{tasks/{id}(id=${task.id})}">
+            <button type="button">
+                詳細
+            </button>
         </a>
         <form th:method="post" th:action="@{tasks/{id}(id=${task.id})}">
             <input type="hidden" name="_method" value="delete"/>

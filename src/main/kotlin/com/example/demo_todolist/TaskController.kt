@@ -38,6 +38,14 @@ class TaskController(private val taskRepository: TaskRepository, private val gre
         return "redirect:/tasks"
     }
 
+    @GetMapping("{id}")
+    fun show(@PathVariable("id") id: Long,
+             model: Model): String {
+        val task = taskRepository.findById(id) ?: throw NotFoundException()
+        model.addAttribute("task", task)
+        return "tasks/detail"
+    }
+
     @GetMapping("{id}/edit")
     fun edit(@PathVariable("id") id: Long,
              form: TaskUpdateForm): String {
