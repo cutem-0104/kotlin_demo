@@ -24,10 +24,6 @@ class TaskControllerTest {
     @MockBean
     private lateinit var taskRepository: TaskRepository
 
-    // テストで使ってないけど、TaskControllerの初期化時に渡しているので必要
-    @MockBean
-    private lateinit var greeter: Greeter
-
     @MockBean
     private lateinit var commandLineRunner: CommandLineRunner
 

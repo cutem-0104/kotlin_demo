@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 
 @Controller
 @RequestMapping("tasks")
-class TaskController(private val taskRepository: TaskRepository, private val greeter: Greeter) {
+class TaskController(private val taskRepository: TaskRepository) {
 
     @ExceptionHandler(NotFoundException::class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -75,7 +75,4 @@ class TaskController(private val taskRepository: TaskRepository, private val gre
         taskRepository.destroy(task)
         return "redirect:/tasks"
     }
-
-    @GetMapping("hello")
-    fun hello(name: String): String = greeter.hello(name)
 }
